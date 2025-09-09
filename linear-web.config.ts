@@ -17,8 +17,8 @@ export default defineConfig({
       saturation: 50,
     },
     alt: {
-      hue: 31,
-      saturation: 70,
+      hue: 35,
+      saturation: 75,
     },
   },
   css: {
@@ -79,7 +79,6 @@ export default defineConfig({
       title: 'Cartelera',
       id: 'cartelera',
       showOnNavigation: true,
-      separator: null,
       components: [
         {
           type: 'Fliers',
@@ -104,7 +103,6 @@ export default defineConfig({
       title: 'Espacio',
       id: 'espacio',
       showOnNavigation: true,
-      separator: null,
       components: [
         {
           type: 'Markdown',
@@ -125,7 +123,6 @@ export default defineConfig({
       title: 'Posibilidades',
       id: 'servicios',
       showOnNavigation: true,
-      separator: null,
       components: [
         {
           type: 'Markdown',
@@ -153,7 +150,6 @@ Si estás inspirad@, contactar y compartir tu propuesta
       title: 'Equipo',
       id: 'equipo',
       showOnNavigation: true,
-      separator: null,
       components: [
         {
           type: 'Team',
@@ -161,23 +157,32 @@ Si estás inspirad@, contactar y compartir tu propuesta
             {
               img: ezequiel,
               name: 'Ezequiel A. Schwartzman',
-              href: 'https://ezequielschwartzman.org',
+              website: 'https://ezequielschwartzman.org',
               role: 'Custodio del espacio, guardián y facilitador de colaboración creativa',
               about: 'Artista | Inventor | Investigador | Facilitador',
+              contactLinks: [
+                { type: 'telegram', value: '5492235235568' },
+                { type: 'whatsapp', value: '5492235235568' },
+                { type: 'email', value: 'zequez@gmail.com' },
+              ],
             },
             {
               img: ezequiel,
               name: 'Mirta L. Cappelluti',
-              href: '#',
               role: 'Custodia del espacio, administradora,',
               about: '...',
+              contactLinks: [
+                { type: 'telegram', value: '5492235235568' },
+                { type: 'whatsapp', value: '5492235235568' },
+                { type: 'email', value: 'zequez@gmail.com' },
+              ],
             },
             {
               img: ezequiel,
               name: 'Meri',
-              href: '#',
               role: 'Guardiana del espacio en el plano astral',
               about: 'Felix Domesticus',
+              contactLinks: [],
             },
           ],
         },
@@ -188,7 +193,6 @@ Si estás inspirad@, contactar y compartir tu propuesta
       title: 'Redes',
       id: 'redes',
       showOnNavigation: true,
-      separator: null,
       components: [
         {
           type: 'Markdown',
