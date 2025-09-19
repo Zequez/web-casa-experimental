@@ -1,2 +1,5 @@
-cname: casaexp.ezequielschwartzman.org
+cname: base.ezequielschwartzman.org
 substrate: linear-web
+
+fonts:
+  serif: Aleo

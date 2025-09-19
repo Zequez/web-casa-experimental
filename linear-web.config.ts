@@ -3,11 +3,13 @@ import title from './title.png'
 import titleBg from './title-bg.jpg'
 import SeparatorIcon from '~icons/fa6-solid/flask'
 import ezequiel from '../ezequiel/photos/faces/joy.jpg'
+import mirta from './photos/mirta.jpg'
 
 import minga from './fliers/minga-pre-primavera-2025.png'
 import mingaContent from './fliers/minga-pre-primavera-2025.txt?raw'
 import webs from './fliers/sitios-web.png'
 import websContent from './fliers/sitios-web.txt?raw'
+import favicon from './favicon.png'
 
 export default defineConfig({
   title: 'Casa Experimental',
@@ -21,6 +23,7 @@ export default defineConfig({
       saturation: 75,
     },
   },
+  icon: favicon,
   css: {
     width: 'max-w-screen-md',
   },
@@ -167,7 +170,7 @@ Si estás inspirad@, contactar y compartir tu propuesta
               ],
             },
             {
-              img: ezequiel,
+              img: mirta,
               name: 'Mirta L. Cappelluti',
               role: 'Custodia del espacio, administradora,',
               about: '...',
@@ -176,13 +179,6 @@ Si estás inspirad@, contactar y compartir tu propuesta
                 { type: 'whatsapp', value: '5492235235568' },
                 { type: 'email', value: 'zequez@gmail.com' },
               ],
-            },
-            {
-              img: ezequiel,
-              name: 'Meri',
-              role: 'Guardiana del espacio en el plano astral',
-              about: 'Felix Domesticus',
-              contactLinks: [],
             },
           ],
         },
