@@ -1,26 +1,106 @@
+import { parse } from 'yaml'
+import { globImportToRecord } from '@/center/utils/neutral'
+
 import defineConfig from '@/substrates/linear-web/define-config'
+
 import title from './title.png'
 import titleBg from './title-bg.jpg'
-import SeparatorIcon from '~icons/fa6-solid/flask'
-import ezequiel from '../ezequiel/photos/faces/joy.jpg'
-import mirta from './photos/mirta.jpg'
-
-import minga from './fliers/minga-pre-primavera-2025.png'
-import mingaContent from './fliers/minga-pre-primavera-2025.txt?raw'
-import webs from './fliers/sitios-web.png'
-import websContent from './fliers/sitios-web.txt?raw'
 import favicon from './favicon.png'
 
+/*<SEPARATOR_ICON/>  IMPORT*/
+import SEPARATOR_ICON from '~icons/fa6-solid/flask'
+
+/*<MEMBERS_PHOTOS> IMPORTS*/
+import MEMBERS_PHOTOS_0 from '../ezequiel/photos/faces/joy.jpg'
+import MEMBERS_PHOTOS_1 from './photos/mirta.jpg'
+/*</MEMBERS_PHOTOS>*/
+
+// ███████╗██╗     ██╗███████╗██████╗ ███████╗
+// ██╔════╝██║     ██║██╔════╝██╔══██╗██╔════╝
+// █████╗  ██║     ██║█████╗  ██████╔╝███████╗
+// ██╔══╝  ██║     ██║██╔══╝  ██╔══██╗╚════██║
+// ██║     ███████╗██║███████╗██║  ██║███████║
+// ╚═╝     ╚══════╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝
+
+const allFliersRawImages = import.meta.glob('./fliers/*.png', {
+  eager: true,
+}) as Record<string, { default: string }>
+
+const allFliersRawContent = import.meta.glob('./fliers/*.txt', {
+  eager: true,
+  as: 'raw',
+}) as Record<string, string>
+
+const allFliersRawYaml = import.meta.glob('./fliers/*.yml', {
+  eager: true,
+  as: 'raw',
+}) as Record<string, string>
+
+// Import fliers
+const fliersContents = globImportToRecord(
+  './fliers/',
+  (v) => v,
+  allFliersRawContent,
+)
+const fliersImages = globImportToRecord(
+  './fliers/',
+  (v) => v.default,
+  allFliersRawImages,
+)
+const fliersYml = globImportToRecord(
+  './fliers/',
+  (v) => parse(v),
+  allFliersRawYaml,
+)
+
+const fliers: {
+  [key: string]: {
+    img: string
+    description: string
+    title: string
+    hue: number
+  }
+} = {}
+
+for (const key in fliersContents) {
+  if (key in fliersImages && key in fliersYml) {
+    fliers[key] = {
+      img: fliersImages[key],
+      description: fliersContents[key],
+      ...fliersYml[key],
+    }
+  }
+}
+
+const fliersOrder = /*<FLIERS_ORDER> STRING_LIST */ [
+  'minga-pre-primavera-2025',
+  'sitios-web',
+]
+
+const sortedFliers: typeof fliers = {}
+
+for (const key of fliersOrder) {
+  console.log(fliers)
+  sortedFliers[key] = fliers[key]
+}
+
+//  ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗
+// ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝
+// ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗
+// ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║
+// ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝
+//  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝
+
 export default defineConfig({
-  title: 'Casa Experimental',
+  title: /*<TITLE> STR*/ 'Casa Experimental',
   colors: {
     main: {
-      hue: 207,
-      saturation: 50,
+      hue: /*<MAIN_HUE> NUMBER*/ 207,
+      saturation: /*<MAIN_SATURATION> NUMBER*/ 50,
     },
     alt: {
-      hue: 35,
-      saturation: 75,
+      hue: /*<ALT_HUE> NUMBER*/ 35,
+      saturation: /*<ALT_SATURATION> NUMBER*/ 75,
     },
   },
   icon: favicon,
@@ -28,18 +108,18 @@ export default defineConfig({
     width: 'max-w-screen-md',
   },
   nav: {
-    show: true,
-    separator: SeparatorIcon,
+    show: /*<NAV_SHOW> BOOLEAN*/ true,
+    separator: SEPARATOR_ICON,
   },
   header: {
     titleImg: title,
     bgImg: titleBg,
     css: {
-      img: 'max-h-300px',
+      img: /*<HEADER_MAX_HEIGHT> STRING*/ 'max-h-300px',
     },
   },
   floatingIcons: {},
-  separators: [
+  separators: /*<SEPARATORS>*/ [
     {
       id: 'zig-zag',
       snapTo: 'next',
@@ -76,7 +156,7 @@ export default defineConfig({
       marginInner: 0,
       marginOuter: 0,
     },
-  ],
+  ] /*</SEPARATORS>*/,
   sections: [
     {
       title: 'Cartelera',
@@ -85,20 +165,7 @@ export default defineConfig({
       components: [
         {
           type: 'Fliers',
-          fliers: {
-            'minga-pre-primavera-2025': {
-              img: minga,
-              title: 'Minga pre-primavera 2025',
-              description: mingaContent,
-              hue: 100,
-            },
-            'sitios-web': {
-              img: webs,
-              title: 'Servicio Sitios Web',
-              description: websContent,
-              hue: 170,
-            },
-          },
+          fliers: sortedFliers,
         },
       ],
     },
@@ -158,7 +225,7 @@ Si estás inspirad@, contactar y compartir tu propuesta
           type: 'Team',
           members: [
             {
-              img: ezequiel,
+              img: MEMBERS_PHOTOS_0,
               name: 'Ezequiel A. Schwartzman',
               website: 'https://ezequielschwartzman.org',
               role: 'Custodio del espacio, guardián y facilitador de colaboración creativa',
@@ -170,7 +237,7 @@ Si estás inspirad@, contactar y compartir tu propuesta
               ],
             },
             {
-              img: mirta,
+              img: MEMBERS_PHOTOS_1,
               name: 'Mirta L. Cappelluti',
               role: 'Custodia del espacio, administradora,',
               about: '...',
