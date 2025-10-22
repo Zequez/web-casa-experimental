@@ -1,5 +1,6 @@
 cname: base.ezequielschwartzman.org
-substrate: linear-web
+cnameNext: casanami.org
+substrate: nothing-web
 
 fonts:
-  serif: Aleo
+  serif: Aleo:400,700
