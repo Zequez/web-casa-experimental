@@ -8,4 +8,5 @@
 
 <DocPage>
   <h1>Taller de Soberanía Digital</h1>
+  <p>Será sostenido por Ezequiel. En gestación. Más info en breve.</p>
 </DocPage>

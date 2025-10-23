@@ -12,7 +12,12 @@
   {favicon}
   {Guarda}
   title="Casa Nami"
-  nav={[['index', 'equipo'], [], [], []]}
+  nav={[
+    ['index', 'equipo'],
+    ['galeria', 'mapa'],
+    ['biodanza', 'equipo-posibilidades', 'taller-soberania-digital'],
+    ['constelaciones', 'astrologia'],
+  ]}
   {Container}
   {NavContainer}
 ></App>
