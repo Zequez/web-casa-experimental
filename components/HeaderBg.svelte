@@ -59,14 +59,15 @@
             -${s}px -${s}px 0 var(--un-text-shadow-color);
         `}
         class="text-12 tracking-wide text-shadow-color-sky-9 line-height-12 text-white font-serif text-center font-bold"
-        >CASA NAMI</h1
+      >
+        <span class="">Nami</span></h1
       >
       <p
         class="text-center italic opacity-80 font-bold text-white text-shadow-[0_1.5px_0_#000]"
       >
         <span
           class="bg-sky-800 px1 rounded-0.25rem shadow-[0_2px_0] shadow-sky-950"
-          >Espacio Cooperativo Experimental</span
+          >Casa Cooperativa Experimental</span
         ></p
       >
     </div>
@@ -79,4 +80,13 @@
       return [generateUnderGrass(canvas)]
     }}
   />
+  <div
+    class="absolute bottom-0 h-1/2 text-white text-center flexcc w-full font-mono text-shadow-[0_1px_0_#000]"
+  >
+    <a
+      href="https://maps.app.goo.gl/SApEkTaDhVEpmQbYA"
+      class="underline underline-(dotted white/70) opacity-70 hover:(underline-solid opacity-100)"
+      target="_blank">Puan 2332, Punta Mogotes<br />Mar del Plata, Argentina</a
+    >
+  </div>
 </div>

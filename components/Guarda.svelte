@@ -10,7 +10,7 @@
     el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     ev.preventDefault()
   }}
-  class="h-12 text-center uppercase font-serif font-bold text-white text-shadow-[0_1.5px_0_#0004] flexcc text-5 tracking-wider relative"
+  class="h-12 text-center font-serif font-bold text-white text-shadow-[0_1.5px_0_#0004] flexcc text-5 tracking-wider relative"
   style={`background-image: url(${guardaTexture})`}
 >
   <span
@@ -19,5 +19,5 @@
   <span
     class="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/5 to-black/5"
   ></span>
-  Casa Nami
+  Nami
 </a>

@@ -3,8 +3,6 @@
 </script>
 
 <script lang="ts">
-  import { getSvgPathFromStrokePoints } from 'tldraw'
-
   import DocPage from '../components/DocPage.svelte'
   import OptimizedImg from '@/substrates/toroid-web/components/OptimizedImg.svelte'
 
@@ -115,7 +113,9 @@
 <DocPage>
   <h1>Galería</h1>
 
-  {#each Object.values(gallery) as photo}
-    <OptimizedImg {...photo} alt="a" />
-  {/each}
+  <div class="flex flex-wrap">
+    {#each Object.values(gallery) as photo}
+      <OptimizedImg class="w-1/2" {...photo} alt="a" />
+    {/each}
+  </div>
 </DocPage>

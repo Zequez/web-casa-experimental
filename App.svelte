@@ -13,11 +13,15 @@
   {Guarda}
   title="Casa Nami"
   nav={[
-    ['index', 'equipo'],
+    ['index', 'tripulacion'],
     ['galeria', 'mapa'],
     ['biodanza', 'equipo-posibilidades', 'taller-soberania-digital'],
     ['constelaciones', 'astrologia'],
   ]}
   {Container}
   {NavContainer}
+  themeColors={{
+    'main-hue': 60,
+    'main-saturation': 70,
+  }}
 ></App>

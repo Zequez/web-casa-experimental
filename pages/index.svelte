@@ -1,5 +1,5 @@
 <script module lang="ts">
-  export const metadata = { title: 'Casa Nami' }
+  export const metadata = { title: 'Nami Casa Cooperativa Experimental' }
   import DocPage from '@/repos/ezequiel/components/DocPage.svelte'
   import DarkToggle from '@/substrates/toroid-web/components/DarkToggle.svelte'
   import HeaderBg from '../components/HeaderBg.svelte'
