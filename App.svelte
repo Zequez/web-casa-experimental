@@ -21,7 +21,7 @@
   {Container}
   {NavContainer}
   themeColors={{
-    'main-hue': 60,
+    'main-hue': 61,
     'main-saturation': 70,
   }}
 ></App>
